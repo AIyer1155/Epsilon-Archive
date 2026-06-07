@@ -1,8 +1,8 @@
 # Why This Archive Exists
 
-Most problem collections optimize for coverage. This one optimizes for **transfer**.
+Most problem collections optimize for coverage. This one optimizes for **understanding**.
 
-Every problem here was chosen because it teaches a mental move — not a trick, but a *category of approach* that appears again and again in Putnam, in quant interviews, and in real probabilistic reasoning.
+Every problem here was chosen because it teaches a specific concept. An approach that appears again and again in Putnam, in quant interviews, and in real probabilistic reasoning.
 
 ## The two questions for every problem
 
