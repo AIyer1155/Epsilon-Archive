@@ -33,7 +33,7 @@
 
 ## What This Trains
 
-[The transferable mental move. What will you recognize faster next time?]
+[The transferable concept. What will you recognize faster next time?]
 
 ---
 
