@@ -25,7 +25,7 @@ Harder version: at least one is a boy born on a Tuesday. Now what?
 
 ## Key Insight
 
-> Always list the full sample space, then cross off what the condition eliminates. Don't reason about "the other child" in isolation — there is no "other child" until you've fixed the sample space.
+> Always list the full sample space, then cross off what the condition eliminates. Don't reason about "the other child" in isolation. There is no "other child" until you've fixed the sample space.
 
 ---
 
@@ -53,7 +53,7 @@ The more specific the condition, the closer you get to $\frac{1}{2}$. If you're 
 
 ## What This Trains
 
-Enumerate first, condition second. Never skip the sample space. The Tuesday variant is also a useful reminder that specificity shifts probability in ways that aren't obvious — this shows up in Bayesian reasoning constantly.
+Enumerate first, condition second. Never skip the sample space. The Tuesday variant is also a useful reminder that specificity shifts probability in ways that aren't obvious. This shows up in Bayesian reasoning repeatedly.
 
 ---
 
