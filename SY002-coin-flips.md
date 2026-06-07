@@ -39,7 +39,7 @@ Even the most likely outcome only happens about 1 in 4 times.
 
 ## What This Trains
 
-Two things: the binomial probability formula, and the intuition that "most likely" doesn't mean "likely." In finance this matters constantly — the modal outcome of a distribution can still have low probability if the distribution is spread out.
+Two things: the binomial probability formula, and the intuition that "most likely" doesn't mean "likely." In finance this matters constantly. The modal outcome of a distribution can still have low probability if the distribution is spread out.
 
 ---
 
