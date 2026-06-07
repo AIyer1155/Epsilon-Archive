@@ -15,7 +15,7 @@ Ten people at a party. Each shakes hands with every other person exactly once. H
 
 ## The Trap
 
-> Multiplying $10 \times 9 = 90$ and forgetting you've counted each handshake twice — once for each participant.
+> Multiplying $10 \times 9 = 90$ and forgetting you've counted each handshake twice, once for each participant.
 
 ---
 
@@ -45,7 +45,7 @@ Ordered vs unordered counting. Any time you're counting pairs, connections, or m
 
 ## Variations
 
-- $n$ people at a party — general formula?
+- $n$ people at a party.
 - A round-robin tournament with 10 teams. How many games are played?
 - Each person shakes hands with everyone *except* the person directly across from them at a circular table. How many handshakes now?
 
