@@ -15,13 +15,13 @@
 
 ## The Trap
 
-> Trying to simulate it. Switch $n$ gets toggled once for each divisor of $n$ — so the question reduces to: which numbers have an odd number of divisors?
+> Trying to simulate it. Switch $n$ gets toggled once for each divisor of $n$, so the question reduces to: which numbers have an odd number of divisors?
 
 ---
 
 ## Key Insight
 
-> Divisors come in pairs: if $d$ divides $n$, so does $\frac{n}{d}$. The only exception is when $d = \frac{n}{d}$, i.e. $d = \sqrt{n}$ — which happens exactly when $n$ is a perfect square. So only perfect squares end up toggled an odd number of times.
+> Divisors come in pairs: if $d$ divides $n$, so does $\frac{n}{d}$. The only exception is when $d = \frac{n}{d}$, i.e. $d = \sqrt{n}$ which happens exactly when $n$ is a perfect square. So only perfect squares end up toggled an odd number of times.
 
 ---
 
