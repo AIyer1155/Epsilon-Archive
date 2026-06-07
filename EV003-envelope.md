@@ -9,13 +9,13 @@
 
 ## Problem
 
-Two envelopes each contain money. One has twice as much as the other. You pick one, open it, see \$100. Should you switch? The other envelope contains either \$50 or \$200 with equal probability — so the expected value of switching is $\frac{1}{2}(50) + \frac{1}{2}(200) = \$125 > \$100$. But by symmetry, the same argument applies before you open the envelope. So should you always switch, even without looking?
+Two envelopes each contain money. One has twice as much as the other. You pick one, open it, see \$100. Should you switch? The other envelope contains either \$50 or \$200$ with equal probability, so the expected value of switching is $\frac{1}{2}(50) + \frac{1}{2}(200) = \$125 > \$100$. But by symmetry, the same argument applies before you open the envelope. So should you always switch, even without looking?
 
 ---
 
 ## The Trap
 
-> Taking the $\frac{1}{2}(50) + \frac{1}{2}(200)$ calculation at face value. The error is treating both cases as equally likely *after* conditioning on seeing \$100 — which requires a prior over how the amounts were chosen.
+> Taking the $\frac{1}{2}(50) + \frac{1}{2}(200)$ calculation at face value. The error is treating both cases as equally likely after conditioning on seeing \$100 which requires a prior over how the amounts were chosen.
 
 ---
 
