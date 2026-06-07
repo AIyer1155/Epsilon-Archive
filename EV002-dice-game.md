@@ -21,7 +21,7 @@ You roll a fair six-sided die repeatedly until you roll a 6. What is the expecte
 
 ## Key Insight
 
-> Each roll is independent. You succeed with probability $\frac{1}{6}$ each time. This is just a geometric distribution — and the expected value of a geometric with success probability $p$ is $\frac{1}{p}$.
+> Each roll is independent. You succeed with probability $\frac{1}{6}$ each time. This is just a geometric distribution and the expected value of a geometric with success probability $p$ is $\frac{1}{p}$.
 
 ---
 
