@@ -1,0 +1,23 @@
+<svg width="100%" viewBox="0 0 690 390" role="img" style="" xmlns="http://www.w3.org/2000/svg">
+<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Epsilon Archive logo</title>
+<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Rectangular stamp logo for Epsilon Archive</desc>
+
+
+
+<rect width="680" height="380" fill="transparent" style="fill:rgba(0, 0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g transform="translate(340, 190)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+  <rect x="-130" y="-105" width="260" height="200" rx="3" fill="#0a0a0a" stroke="#e8e0d0" stroke-width="1.8" style="fill:rgb(10, 10, 10);stroke:rgb(232, 224, 208);color:rgb(255, 255, 255);stroke-width:1.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="-121" y="-97" width="242" height="184" rx="2" fill="none" stroke="#e8e0d0" stroke-width="0.5" style="fill:none;stroke:rgb(232, 224, 208);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- large epsilon -->
+  <text x="-24" y="48" text-anchor="middle" font-family="Playfair Display, serif" font-size="118" font-weight="400" fill="#e8e0d0" style="fill:rgb(232, 224, 208);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Playfair Display&quot;, serif;font-size:118px;font-weight:400;text-anchor:middle;dominant-baseline:auto">ε</text>
+
+  <!-- vertical rule -->
+  <line x1="48" y1="-68" x2="48" y2="72" stroke="#e8e0d0" stroke-width="0.8" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(232, 224, 208);color:rgb(255, 255, 255);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- stacked text right -->
+  <text x="64" y="-28" font-family="Courier Prime, monospace" font-size="10" font-weight="700" fill="#e8e0d0" letter-spacing="3" style="fill:rgb(232, 224, 208);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier Prime&quot;, monospace;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">EPSILON</text>
+  <text x="64" y="-10" font-family="Courier Prime, monospace" font-size="10" font-weight="700" fill="#e8e0d0" letter-spacing="3" style="fill:rgb(232, 224, 208);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier Prime&quot;, monospace;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">ARCHIVE</text>
+</g>
+</svg>
