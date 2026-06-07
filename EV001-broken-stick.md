@@ -21,7 +21,7 @@ A stick of length 1 is broken at a point chosen uniformly at random. What is the
 
 ## Key Insight
 
-> The two pieces are symmetric around $\frac{1}{2}$, so neither is systematically longer. You can just integrate directly — the symmetry makes both halves of the integral identical.
+> The two pieces are symmetric around $\frac{1}{2}$, so neither is systematically longer. You can just integrate directly since the symmetry makes both halves of the integral identical.
 
 ---
 
@@ -31,7 +31,7 @@ Let $X \sim \text{Uniform}(0,1)$ be the break point. The shorter piece has lengt
 
 $$E[\min(X, 1-X)] = \int_0^{1/2} x\, dx + \int_{1/2}^1 (1-x)\, dx = 2\int_0^{1/2} x\, dx = 2 \cdot \frac{1}{8} = \frac{1}{4}$$
 
-**Sanity check:** shorter + longer = $\frac{1}{4} + \frac{3}{4} = 1$. ✓
+**Check:** shorter + longer = $\frac{1}{4} + \frac{3}{4} = 1$. ✓
 
 ---
 
