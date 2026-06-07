@@ -15,13 +15,13 @@ You start with \$k. Each step: win \$1 with probability $p$, lose \$1 with proba
 
 ## The Trap
 
-> Counting paths directly. The game can last arbitrarily long, so you're summing an infinite series that gets ugly fast. First-step analysis is the move.
+> Counting paths directly. The game can last arbitrarily long, so you're summing an infinite series that gets unweildy fast. First-step analysis is the move
 
 ---
 
 ## Key Insight
 
-> Condition on the first step. Your win probability from position $k$ depends only on your win probability from $k+1$ and $k-1$ — that's a recurrence you can actually solve.
+> Condition on the first step. Your win probability from position $k$ depends only on your win probability from $k+1$ and $k-1$
 
 ---
 
