@@ -1,3 +1,10 @@
+![Epsilon Archive](logo.svg)
+
+
+
+
+
+
 # The Epsilon Archive
 
 A curated problem archive for students preparing for **quant trading interviews** and the **Putnam Competition** with editorial commentary on problem-solving strategy.
