@@ -15,7 +15,7 @@ A chord is drawn at random in a unit circle. What is the probability its length 
 
 ## The Trap
 
-> Assuming "at random" has a single obvious meaning. It doesn't — this is Bertrand's Paradox. The answer depends on how you define "random chord," and three natural definitions give three different answers.
+> Assuming "at random" has a single obvious meaning. The answer depends on how you define "random chord," and three natural definitions give three different answers.
 
 ---
 
@@ -47,7 +47,7 @@ Three answers: $\frac{1}{3}$, $\frac{1}{4}$, $\frac{1}{2}$. All correct given th
 
 ## What This Trains
 
-"Uniform at random" is not self-defining on continuous spaces — you need to specify the measure. This is directly relevant to model risk: two quant models can both be "reasonable" and give completely different answers. Always ask what the probability space is before computing.
+"Uniform at random" is not self-defining on continuous spaces. You need to specify the measure. This is directly relevant to model risk: two quant models can both be "reasonable" and give completely different answers. Always ask what the probability space is before computing.
 
 ---
 
