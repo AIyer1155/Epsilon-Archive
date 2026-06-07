@@ -15,7 +15,7 @@ You're climbing a staircase with $n$ steps. Each move you can climb 1 or 2 steps
 
 ## The Trap
 
-> Trying to enumerate paths directly for large $n$. The structure is recursive — the last step determines everything.
+> Trying to enumerate paths directly for large $n$. The structure is recursive the last step determines everything.
 
 ---
 
