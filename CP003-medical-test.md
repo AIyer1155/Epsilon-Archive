@@ -9,7 +9,7 @@
 
 ## Problem
 
-A disease affects 1 in 1000 people. A test is 99% accurate — it correctly identifies 99% of sick people and correctly clears 99% of healthy people. You test positive. What is the probability you actually have the disease?
+A disease affects 1 in 1000 people. A test is 99% accurate. It correctly identifies 99% of sick people and correctly clears 99% of healthy people. You test positive. What is the probability you actually have the disease?
 
 ---
 
@@ -21,7 +21,7 @@ A disease affects 1 in 1000 people. A test is 99% accurate — it correctly iden
 
 ## Key Insight
 
-> Most positive results are false positives — because the disease is so rare that even a 1% error rate on healthy people swamps the true positives.
+> Most positive results are false positives because the disease is so rare that even a 1% error rate on healthy people buries the true positives.
 
 ---
 
@@ -46,7 +46,7 @@ $$P(\text{sick} \mid +) = \frac{P(+ \mid \text{sick}) \cdot P(\text{sick})}{P(+)
 
 ## What This Trains
 
-Base rate neglect is one of the most common probabilistic errors — in medicine, in finance, and in interviews. Whenever someone gives you a conditional probability, ask: what's the prior? A signal that's 99% accurate on a rare event is mostly noise in practice.
+Base rate neglect is one of the most common probabilistic errors in medicine, in finance, and in interviews. Whenever someone gives you a conditional probability, ask: what's the prior? A signal that's 99% accurate on a rare event is mostly noise in practice.
 
 ---
 
