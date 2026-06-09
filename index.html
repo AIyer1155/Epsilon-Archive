@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Epsilon Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Courier+Prime:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --cream: #e8e0d0;
+      --cream-dim: rgba(232, 224, 208, 0.5);
+      --cream-faint: rgba(232, 224, 208, 0.08);
+      --cream-subtle: rgba(232, 224, 208, 0.15);
+      --accent: #e8e0d0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--cream-subtle);
+    }
+
+    .nav-logo {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--cream);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-logo .epsilon-glyph {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--cream); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: 'ε';
+      position: absolute;
+      font-family: 'Playfair Display', serif;
+      font-size: 52vw;
+      color: rgba(232, 224, 208, 0.028);
+      line-height: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .stamp-border {
+      display: inline-block;
+      border: 1.5px solid var(--cream);
+      border-radius: 3px;
+      padding: 2.5rem 3.5rem;
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .stamp-border::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 0.5px solid var(--cream-dim);
+      border-radius: 2px;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--cream-dim);
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--cream-dim);
+    }
+
+    .hero-sub {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--cream-dim);
+      margin-top: 1rem;
+    }
+
+    .hero-desc {
+      max-width: 560px;
+      font-size: 1rem;
+      color: var(--cream-dim);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      padding: 0.75rem 2rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+
+    .btn-primary {
+      background: var(--cream);
+      color: var(--bg);
+      border: 1px solid var(--cream);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--cream);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid var(--cream-dim);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--cream);
+    }
+
+    /* DIVIDER */
+    .rule {
+      width: 100%;
+      height: 1px;
+      background: var(--cream-subtle);
+      margin: 0;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 6rem 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--cream-dim);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-body {
+      font-size: 1rem;
+      color: var(--cream-dim);
+      line-height: 1.85;
+      max-width: 680px;
+    }
+
+    .section-body p + p { margin-top: 1.2rem; }
+
+    /* CATEGORIES GRID */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--cream-subtle);
+      border: 1px solid var(--cream-subtle);
+      margin-top: 3rem;
+    }
+
+    .category-card {
+      background: var(--bg);
+      padding: 2rem;
+      transition: background 0.2s;
+    }
+
+    .category-card:hover { background: var(--cream-faint); }
+
+    .cat-label {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--cream-dim);
+      margin-bottom: 0.5rem;
+    }
+
+    .cat-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.6rem;
+    }
+
+    .cat-desc {
+      font-size: 0.85rem;
+      color: var(--cream-dim);
+      line-height: 1.6;
+    }
+
+    /* FRAMEWORK */
+    .framework {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 640px) {
+      .framework { grid-template-columns: 1fr; }
+    }
+
+    .framework-item {
+      border-left: 1px solid var(--cream-subtle);
+      padding-left: 1.5rem;
+    }
+
+    .fw-label {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--cream-dim);
+      margin-bottom: 0.4rem;
+    }
+
+    .fw-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .fw-body {
+      font-size: 0.875rem;
+      color: var(--cream-dim);
+      line-height: 1.65;
+    }
+
+    /* STATS */
+    .stats {
+      display: flex;
+      gap: 4rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+
+    .stat-item { }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--cream-dim);
+    }
+
+    /* ABOUT SPLIT */
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .about-split { grid-template-columns: 1fr; gap: 2.5rem; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      section { padding: 4rem 1.5rem; }
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--cream-subtle);
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--cream-dim);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--cream); }
+
+    .full-bleed {
+      max-width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .full-bleed > * {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span class="epsilon-glyph">ε</span>
+      <span>EPSILON ARCHIVE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="problems.html">PROBLEMS</a></li>
+      <li><a href="path.html">8-WEEK PATH</a></li>
+      <li><a href="wiki.html">WIKI</a></li>
+      <li><a href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank">GITHUB ↗</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="stamp-border">
+      <p class="hero-eyebrow">OPEN-SOURCE · QUANT PREP · PUTNAM</p>
+      <h1 class="hero-title">Epsilon<br><em>Archive</em></h1>
+      <p class="hero-sub">EDITORIAL PROBLEM SETS FOR SERIOUS STUDENTS</p>
+    </div>
+    <p class="hero-desc">
+      Most problem sets tell you the answer. Epsilon Archive tells you why you got it wrong — and what that reveals about how you think.
+    </p>
+    <div class="hero-cta">
+      <a href="problems.html" class="btn btn-primary">BROWSE PROBLEMS</a>
+      <a href="path.html" class="btn btn-ghost">8-WEEK STUDY PATH</a>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- STATS -->
+  <section>
+    <p class="section-eyebrow">BY THE NUMBERS</p>
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-num">13</div>
+        <div class="stat-label">PROBLEMS</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">7</div>
+        <div class="stat-label">CATEGORIES</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">EDITORIAL LENSES</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">OPEN SOURCE</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- FRAMEWORK -->
+  <section>
+    <p class="section-eyebrow">THE EDITORIAL FORMAT</p>
+    <h2 class="section-title">Every problem, four lenses.</h2>
+    <p class="section-body">
+      Getting the right answer isn't the point. Understanding the structure of the problem — and what it's actually testing — is. Each entry in Epsilon Archive is written to expose the machinery beneath the math.
+    </p>
+    <div class="framework">
+      <div class="framework-item">
+        <p class="fw-label">I</p>
+        <p class="fw-title">The Trap</p>
+        <p class="fw-body">What the problem wants you to think, and why that path fails. Named explicitly so you can recognize it next time.</p>
+      </div>
+      <div class="framework-item">
+        <p class="fw-label">II</p>
+        <p class="fw-title">The Insight</p>
+        <p class="fw-body">The reframe that unlocks the problem. Often one clean observation that makes the rest mechanical.</p>
+      </div>
+      <div class="framework-item">
+        <p class="fw-label">III</p>
+        <p class="fw-title">The Solution</p>
+        <p class="fw-body">Rigorous but readable. Written for someone who wants to understand, not just verify.</p>
+      </div>
+      <div class="framework-item">
+        <p class="fw-label">IV</p>
+        <p class="fw-title">What This Trains</p>
+        <p class="fw-body">The transferable skill. Connects this problem to the broader pattern it belongs to — in Putnam, in quant interviews, in research.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- CATEGORIES PREVIEW -->
+  <section>
+    <p class="section-eyebrow">PROBLEM CATEGORIES</p>
+    <h2 class="section-title">Seven domains.<br>One framework.</h2>
+    <div class="categories">
+      <div class="category-card">
+        <p class="cat-label">CAT 01</p>
+        <p class="cat-name">Probability &amp; Expectation</p>
+        <p class="cat-desc">The backbone of quant interviews. Conditioning, linearity of expectation, symmetry arguments.</p>
+      </div>
+      <div class="category-card">
+        <p class="cat-label">CAT 02</p>
+        <p class="cat-name">Combinatorics</p>
+        <p class="cat-desc">Counting without over-counting. Bijections, generating functions, inclusion-exclusion.</p>
+      </div>
+      <div class="category-card">
+        <p class="cat-label">CAT 03</p>
+        <p class="cat-name">Linear Algebra</p>
+        <p class="cat-desc">Eigenvalues, rank, and the geometry of transformations. Essential for both Putnam and quant.</p>
+      </div>
+      <div class="category-card">
+        <p class="cat-label">CAT 04</p>
+        <p class="cat-name">Real Analysis</p>
+        <p class="cat-desc">Limits, continuity, and convergence. Where rigorous proof meets intuition.</p>
+      </div>
+      <div class="category-card">
+        <p class="cat-label">CAT 05</p>
+        <p class="cat-name">Number Theory</p>
+        <p class="cat-desc">Modular arithmetic, divisibility, and Putnam's favorite playground.</p>
+      </div>
+      <div class="category-card">
+        <p class="cat-label">CAT 06</p>
+        <p class="cat-name">Game Theory &amp; Strategy</p>
+        <p class="cat-desc">Optimal play, Nash equilibria, and the adversarial thinking quant firms test.</p>
+      </div>
+      <div class="category-card">
+        <p class="cat-label">CAT 07</p>
+        <p class="cat-name">Estimation &amp; Fermi</p>
+        <p class="cat-desc">Order-of-magnitude reasoning under time pressure. A distinct skill — and a trainable one.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ABOUT TEASER -->
+  <section>
+    <div class="about-split">
+      <div>
+        <p class="section-eyebrow">WHY THIS EXISTS</p>
+        <h2 class="section-title">Built for the gap no resource fills.</h2>
+      </div>
+      <div>
+        <div class="section-body">
+          <p>Most quant prep resources give you problems and solutions. A few give you hints. Almost none tell you what cognitive mistake the problem is designed to elicit — or what transferable skill solving it correctly builds.</p>
+          <p>Epsilon Archive was built to fill that gap. It's not a problem dump. It's a curated, editorially rigorous archive aimed at students who want to understand how they think, not just practice until they get lucky.</p>
+          <p style="margin-top: 1.5rem;">
+            <a href="about.html" class="btn btn-ghost">READ THE FULL PHILOSOPHY →</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">ε EPSILON ARCHIVE · OPEN SOURCE · MIT LICENSE</div>
+    <ul class="footer-links">
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="problems.html">PROBLEMS</a></li>
+      <li><a href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank">GITHUB</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>

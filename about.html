@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Epsilon Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Courier+Prime:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --cream: #e8e0d0;
+      --cream-dim: rgba(232, 224, 208, 0.5);
+      --cream-faint: rgba(232, 224, 208, 0.08);
+      --cream-subtle: rgba(232, 224, 208, 0.15);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--cream-subtle);
+    }
+    .nav-logo {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--cream);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .nav-logo .epsilon-glyph {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--cream); }
+
+    .rule { width: 100%; height: 1px; background: var(--cream-subtle); }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 10rem 3rem 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--cream-subtle);
+    }
+    .page-eyebrow {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--cream-dim);
+      margin-bottom: 1.5rem;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      max-width: 700px;
+    }
+    .page-title em { font-style: italic; color: var(--cream-dim); }
+
+    /* PROSE SECTION */
+    .prose-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 3rem;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 5rem;
+      align-items: start;
+      border-bottom: 1px solid var(--cream-subtle);
+    }
+
+    @media (max-width: 768px) {
+      .prose-section { grid-template-columns: 1fr; gap: 1.5rem; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .page-header { padding: 8rem 1.5rem 3rem; }
+    }
+
+    .prose-label {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--cream-dim);
+      padding-top: 0.35rem;
+      position: sticky;
+      top: 6rem;
+    }
+
+    .prose-body {
+      font-size: 1.05rem;
+      color: var(--cream-dim);
+      line-height: 1.85;
+      max-width: 640px;
+    }
+    .prose-body p + p { margin-top: 1.4rem; }
+
+    .prose-body strong {
+      color: var(--cream);
+      font-weight: 500;
+    }
+
+    .prose-body .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.4;
+      margin: 2.5rem 0;
+      padding-left: 1.5rem;
+      border-left: 1px solid var(--cream-dim);
+    }
+
+    /* FOUNDER */
+    .founder-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 3rem;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 5rem;
+    }
+
+    @media (max-width: 768px) {
+      .founder-section { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+
+    .founder-card {
+      border: 1px solid var(--cream-subtle);
+      padding: 2rem;
+      border-radius: 2px;
+    }
+
+    .founder-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .founder-title {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--cream-dim);
+      margin-bottom: 1rem;
+    }
+
+    .founder-bio {
+      font-size: 0.875rem;
+      color: var(--cream-dim);
+      line-height: 1.7;
+    }
+
+    .founder-links {
+      margin-top: 1.2rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .founder-links a {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--cream-dim);
+      text-decoration: none;
+      border-bottom: 1px solid var(--cream-subtle);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .founder-links a:hover { color: var(--cream); border-color: var(--cream); }
+
+    /* AUDIENCE */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--cream-subtle);
+      border: 1px solid var(--cream-subtle);
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .audience-grid { grid-template-columns: 1fr; }
+    }
+
+    .audience-card {
+      background: var(--bg);
+      padding: 2rem;
+    }
+
+    .aud-label {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--cream-dim);
+      margin-bottom: 0.5rem;
+    }
+
+    .aud-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .aud-body {
+      font-size: 0.85rem;
+      color: var(--cream-dim);
+      line-height: 1.65;
+    }
+
+    footer {
+      border-top: 1px solid var(--cream-subtle);
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-left {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--cream-dim);
+    }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--cream); }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span class="epsilon-glyph">ε</span>
+      <span>EPSILON ARCHIVE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">ABOUT</a></li>
+      <li><a href="problems.html">PROBLEMS</a></li>
+      <li><a href="path.html">8-WEEK PATH</a></li>
+      <li><a href="wiki.html">WIKI</a></li>
+      <li><a href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank">GITHUB ↗</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <p class="page-eyebrow">ABOUT</p>
+    <h1 class="page-title">The archive that teaches you <em>how</em> you think.</h1>
+  </div>
+
+  <!-- THE PROBLEM -->
+  <div class="prose-section">
+    <div class="prose-label">THE PROBLEM</div>
+    <div class="prose-body">
+      <p>Most problem sets are wrong about what they're teaching.</p>
+      <p>They present a problem, offer a solution, and call it preparation. At best, you learn that approach — for that problem. But quant interviews and the Putnam don't test whether you've seen the trick before. They test whether you can <strong>generate the insight from scratch</strong>, under pressure, when everything in the problem is designed to point you somewhere else first.</p>
+      <div class="pull-quote">"The answer is the least interesting part of any hard problem."</div>
+      <p>The cognitive mistake most students make isn't ignorance — it's pattern-matching to the wrong thing. A probability problem looks like a counting problem. A linear algebra question disguises itself as arithmetic. You reach for the tool that got used last time, and it fails. No one told you why, or what to watch for next time.</p>
+      <p>That's the gap Epsilon Archive is built to fill.</p>
+    </div>
+  </div>
+
+  <!-- THE PHILOSOPHY -->
+  <div class="prose-section">
+    <div class="prose-label">THE PHILOSOPHY</div>
+    <div class="prose-body">
+      <p>Every problem in this archive is treated as a case study in mathematical thinking, not just a vehicle for a technique.</p>
+      <p>The editorial format — <strong>Trap, Insight, Solution, What This Trains</strong> — exists because those four things are what a good mentor would tell you after you got a problem wrong. The trap names the mistake the problem is engineered to elicit. The insight is the reframe that dissolves the difficulty. The solution is rigorous but readable. And "What This Trains" connects the problem to the broader cognitive skill it belongs to.</p>
+      <p>This last piece is the most important. A student who understands <em>what mental motion unlocked a problem</em> can apply it the next time they see a completely different problem with the same underlying structure. That's what preparation actually means.</p>
+      <p>The archive is curated, not comprehensive. A smaller set of deeply understood problems beats a large set of half-understood ones, every time.</p>
+    </div>
+  </div>
+
+  <!-- WHO IT'S FOR -->
+  <div class="prose-section">
+    <div class="prose-label">WHO IT'S FOR</div>
+    <div class="prose-body">
+      <p>Epsilon Archive is for three kinds of people, and it's honest about that.</p>
+      <div class="audience-grid" style="margin-top: 1.5rem;">
+        <div class="audience-card">
+          <p class="aud-label">AUDIENCE 01</p>
+          <p class="aud-title">Quant Candidates</p>
+          <p class="aud-body">Preparing for Jane Street, Citadel, Two Sigma, and similar. Looking for problems that reflect how top firms actually think, not textbook exercises.</p>
+        </div>
+        <div class="audience-card">
+          <p class="aud-label">AUDIENCE 02</p>
+          <p class="aud-title">Putnam Students</p>
+          <p class="aud-body">Aiming for real scores, not just participation. Want to understand problem structure and develop genuine mathematical taste, not just technique recall.</p>
+        </div>
+        <div class="audience-card">
+          <p class="aud-label">AUDIENCE 03</p>
+          <p class="aud-title">Math Educators</p>
+          <p class="aud-body">Interested in the editorial model as a teaching tool. The Trap/Insight framework is designed to be reusable in any context where metacognition matters.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOUNDER -->
+  <div class="founder-section">
+    <div class="prose-label">THE FOUNDER</div>
+    <div class="founder-card">
+      <p class="founder-name">Advay Iyer</p>
+      <p class="founder-title">FOUNDER · VIRGINIA TECH '29 · CS + MATHEMATICS</p>
+      <p class="founder-bio">
+        Incoming freshman at Virginia Tech, double-focusing in computer science and discrete mathematics. Targeting quant research roles at top firms. Built Epsilon Archive because the resource he wanted to use didn't exist — and because the editorial format is, he believes, how problem sets should always have been written.
+      </p>
+      <div class="founder-links">
+        <a href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank">GITHUB ↗</a>
+        <a href="https://linkedin.com" target="_blank">LINKEDIN ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-left">ε EPSILON ARCHIVE · OPEN SOURCE · MIT LICENSE</div>
+    <ul class="footer-links">
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="problems.html">PROBLEMS</a></li>
+      <li><a href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank">GITHUB</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wiki — Epsilon Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Courier+Prime:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg: #0a0a0a; --cream: #e8e0d0; --cream-dim: rgba(232,224,208,0.5); --cream-faint: rgba(232,224,208,0.08); --cream-subtle: rgba(232,224,208,0.15); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--cream); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.7; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 3rem; background: rgba(10,10,10,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--cream-subtle); }
+    .nav-logo { font-family: 'Courier Prime', monospace; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; color: var(--cream); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
+    .nav-logo .epsilon-glyph { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 400; line-height: 1; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-family: 'Courier Prime', monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; color: var(--cream-dim); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--cream); }
+
+    .page-header { padding: 10rem 3rem 4rem; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--cream-subtle); }
+    .page-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em; color: var(--cream-dim); margin-bottom: 1.5rem; }
+    .page-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; line-height: 1.05; max-width: 700px; }
+    .page-title em { font-style: italic; color: var(--cream-dim); }
+    .page-subtitle { font-size: 1rem; color: var(--cream-dim); max-width: 560px; margin-top: 1.5rem; line-height: 1.8; }
+
+    /* WIKI LAYOUT */
+    .wiki-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      max-width: 1100px;
+      margin: 0 auto;
+      min-height: 80vh;
+    }
+
+    .wiki-sidebar {
+      border-right: 1px solid var(--cream-subtle);
+      padding: 3rem 2rem 3rem 3rem;
+      position: sticky;
+      top: 4.5rem;
+      height: fit-content;
+    }
+
+    .sidebar-section { margin-bottom: 2rem; }
+    .sidebar-section-label { font-family: 'Courier Prime', monospace; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; color: var(--cream-dim); margin-bottom: 0.75rem; }
+    .sidebar-links { list-style: none; }
+    .sidebar-links li { margin-bottom: 0.4rem; }
+    .sidebar-links a { font-size: 0.85rem; color: var(--cream-dim); text-decoration: none; transition: color 0.2s; }
+    .sidebar-links a:hover, .sidebar-links a.active { color: var(--cream); }
+
+    .wiki-content { padding: 3rem 3rem 6rem; }
+
+    .wiki-article { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--cream-subtle); }
+    .wiki-article:last-child { border-bottom: none; }
+
+    .article-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; color: var(--cream-dim); margin-bottom: 0.75rem; }
+    .article-title { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 400; margin-bottom: 1.25rem; }
+    .article-body { font-size: 0.95rem; color: var(--cream-dim); line-height: 1.85; max-width: 620px; }
+    .article-body p + p { margin-top: 1.1rem; }
+    .article-body strong { color: var(--cream); font-weight: 500; }
+
+    .concept-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0; border: 1px solid var(--cream-subtle); }
+    .concept-item { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--cream-subtle); }
+    .concept-item:last-child { border-bottom: none; }
+    .concept-term { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 400; margin-bottom: 0.3rem; }
+    .concept-def { font-size: 0.85rem; color: var(--cream-dim); line-height: 1.6; }
+
+    @media (max-width: 768px) {
+      .wiki-layout { grid-template-columns: 1fr; }
+      .wiki-sidebar { position: static; border-right: none; border-bottom: 1px solid var(--cream-subtle); padding: 2rem 1.5rem; }
+      .wiki-content { padding: 2rem 1.5rem 4rem; }
+      nav { padding: 1rem 1.5rem; } .nav-links { gap: 1.5rem; }
+      .page-header { padding: 8rem 1.5rem 3rem; }
+    }
+
+    footer { border-top: 1px solid var(--cream-subtle); padding: 2.5rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-left { font-family: 'Courier Prime', monospace; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; color: var(--cream-dim); }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { font-family: 'Courier Prime', monospace; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; color: var(--cream-dim); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--cream); }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span class="epsilon-glyph">ε</span>
+      <span>EPSILON ARCHIVE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="problems.html">PROBLEMS</a></li>
+      <li><a href="path.html">8-WEEK PATH</a></li>
+      <li><a href="wiki.html" class="active">WIKI</a></li>
+      <li><a href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank">GITHUB ↗</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <p class="page-eyebrow">WIKI</p>
+    <h1 class="page-title">Concepts, terms,<br><em>and context.</em></h1>
+    <p class="page-subtitle">A reference for the ideas, techniques, and frameworks that appear across the archive. Written to be understood, not just referenced.</p>
+  </div>
+
+  <div class="wiki-layout">
+    <aside class="wiki-sidebar">
+      <div class="sidebar-section">
+        <p class="sidebar-section-label">THE FRAMEWORK</p>
+        <ul class="sidebar-links">
+          <li><a href="#editorial-format" class="active">Editorial Format</a></li>
+          <li><a href="#what-is-a-trap">What Is a Trap?</a></li>
+          <li><a href="#what-is-an-insight">What Is an Insight?</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <p class="sidebar-section-label">KEY CONCEPTS</p>
+        <ul class="sidebar-links">
+          <li><a href="#linearity">Linearity of Expectation</a></li>
+          <li><a href="#invariants">Invariants</a></li>
+          <li><a href="#symmetry">Symmetry Arguments</a></li>
+          <li><a href="#fixed-points">Fixed Points</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <p class="sidebar-section-label">QUANT CONTEXT</p>
+        <ul class="sidebar-links">
+          <li><a href="#what-firms-test">What Firms Actually Test</a></li>
+          <li><a href="#putnam-vs-quant">Putnam vs. Quant Prep</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="wiki-content">
+
+      <article class="wiki-article" id="editorial-format">
+        <p class="article-eyebrow">THE FRAMEWORK</p>
+        <h2 class="article-title">The Editorial Format</h2>
+        <div class="article-body">
+          <p>Every problem in Epsilon Archive is presented through four lenses: <strong>Trap, Insight, Solution, and What This Trains</strong>. This isn't arbitrary structure — each lens serves a specific purpose that a bare solution cannot.</p>
+          <p>The Trap names the cognitive mistake the problem is engineered to elicit. Naming it explicitly is important: a mistake you can identify is a mistake you can catch. The Insight is the reframe — the single observation that, once made, makes the rest of the problem almost mechanical. The Solution is rigorous but written to be understood, not merely verified. And What This Trains maps the problem to the transferable cognitive skill it belongs to.</p>
+          <p>The format is designed to be used actively. When you read a problem entry, try to identify the Trap before reading it. Try to find the Insight yourself before reading ours. Use the Solution to check your reasoning, not replace it.</p>
+        </div>
+      </article>
+
+      <article class="wiki-article" id="what-is-a-trap">
+        <p class="article-eyebrow">THE FRAMEWORK</p>
+        <h2 class="article-title">What Is a Trap?</h2>
+        <div class="article-body">
+          <p>A Trap is not a trick. It's a plausible-looking approach that the problem's structure is specifically designed to suggest — and that fails, usually for a reason that illuminates something true about the mathematics involved.</p>
+          <p>Good problems have traps that are <strong>almost right</strong>. They fail at the margin, not obviously. A trap you walk into is more instructive than a path you'd never have taken. When we name a Trap, we're naming the mistake that a careful, intelligent person would make on first contact with this problem.</p>
+          <p>Common trap types: applying a formula outside its domain of validity; conflating correlation with independence; double-counting with inclusion-exclusion; using a continuous approximation where discreteness matters.</p>
+        </div>
+      </article>
+
+      <article class="wiki-article" id="what-is-an-insight">
+        <p class="article-eyebrow">THE FRAMEWORK</p>
+        <h2 class="article-title">What Is an Insight?</h2>
+        <div class="article-body">
+          <p>An insight is a reframing that makes a hard problem easy — or more precisely, that makes a problem tractable that wasn't tractable before. Insights are not tricks. They're observations about structure that were always there but not obvious from the problem's surface presentation.</p>
+          <p>The goal of Epsilon Archive's editorial commentary is to make insights <strong>reproducible</strong>. Not to memorize this insight for this problem, but to develop the habit of looking for the class of insight a given problem is likely to reward. A problem with a lot of symmetry probably has a symmetry argument. A sum over many terms probably has a linearity-of-expectation shortcut. A problem about optimal decisions probably has an invariant.</p>
+        </div>
+      </article>
+
+      <article class="wiki-article" id="linearity">
+        <p class="article-eyebrow">KEY CONCEPTS</p>
+        <h2 class="article-title">Linearity of Expectation</h2>
+        <div class="article-body">
+          <p>For any random variables X and Y, E[X + Y] = E[X] + E[Y] — regardless of whether X and Y are independent. This is one of the most powerful tools in probability, and it's underused because it's not obvious when to reach for it.</p>
+          <p>The key is to decompose the quantity you're trying to compute into a sum of simpler indicator variables. Counting problems are often secretly expectation problems in disguise. If you're asked "how many objects satisfy some property on average," try defining indicator variables for each object and summing their expectations.</p>
+          <div class="concept-list">
+            <div class="concept-item">
+              <p class="concept-term">Indicator Variable</p>
+              <p class="concept-def">A random variable that takes value 1 if an event occurs and 0 otherwise. E[I] = P(event). Summing indicators over a set of objects gives a count.</p>
+            </div>
+            <div class="concept-item">
+              <p class="concept-term">Independence Is Not Required</p>
+              <p class="concept-def">This is the key. Linearity holds even when variables are correlated. You don't need to worry about the joint distribution.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="wiki-article" id="invariants">
+        <p class="article-eyebrow">KEY CONCEPTS</p>
+        <h2 class="article-title">Invariants</h2>
+        <div class="article-body">
+          <p>An invariant is a quantity that doesn't change under the operations allowed by a problem. Finding an invariant often resolves questions about reachability, optimality, or the existence of a solution in one clean step.</p>
+          <p>Invariant arguments are common in Putnam and in quant game theory problems. The approach: identify what operations are permitted, ask what quantity those operations preserve, and check whether the initial and target states agree on that quantity.</p>
+        </div>
+      </article>
+
+      <article class="wiki-article" id="what-firms-test">
+        <p class="article-eyebrow">QUANT CONTEXT</p>
+        <h2 class="article-title">What Firms Actually Test</h2>
+        <div class="article-body">
+          <p>Quant interviews at top firms — Jane Street, Citadel, Two Sigma, D.E. Shaw — are not testing whether you've memorized techniques. They're testing how you think under pressure, and specifically whether you can generate an insight from scratch rather than pattern-match to something you've seen before.</p>
+          <p>The most commonly tested domains, in rough order: probability and expectation (especially conditioning and linearity), combinatorial reasoning, mental arithmetic and estimation, game theory and adversarial thinking, and basic linear algebra. Real analysis appears less frequently but rewards the candidate who knows it.</p>
+          <p>The most commonly failed trap: treating a quant interview like a problem set where you're expected to find the right formula. The right move is almost always to <strong>slow down and reframe the question</strong> before attempting a calculation.</p>
+        </div>
+      </article>
+
+      <article class="wiki-article" id="putnam-vs-quant">
+        <p class="article-eyebrow">QUANT CONTEXT</p>
+        <h2 class="article-title">Putnam vs. Quant Prep — What Overlaps and What Doesn't</h2>
+        <div class="article-body">
+          <p>Putnam and quant interviews test overlapping but distinct skills. The overlap is large: combinatorics, probability, number theory, linear algebra, and the general ability to reframe problems. Both reward mathematical taste over brute force.</p>
+          <p>The differences: Putnam problems are longer and require sustained proof-writing. Quant interviews are faster and more conversational — you'll be expected to think out loud, estimate quickly, and explain your reasoning in real time. Putnam rewards rigor above speed; quant interviews reward speed and clarity above completeness.</p>
+          <p>The strategy for students targeting both: use Putnam prep to build depth and proof rigor, and practice quant-style timed problems separately to build the habit of fast, articulate reasoning. Epsilon Archive's editorial format is designed to serve both contexts.</p>
+        </div>
+      </article>
+
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-left">ε EPSILON ARCHIVE · OPEN SOURCE · MIT LICENSE</div>
+    <ul class="footer-links">
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="problems.html">PROBLEMS</a></li>
+      <li><a href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank">GITHUB</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
