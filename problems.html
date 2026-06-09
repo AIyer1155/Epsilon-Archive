@@ -7,111 +7,49 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Courier+Prime:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg: #0a0a0a;
-      --cream: #e8e0d0;
-      --cream-dim: rgba(232, 224, 208, 0.5);
-      --cream-faint: rgba(232, 224, 208, 0.08);
-      --cream-subtle: rgba(232, 224, 208, 0.15);
-    }
+    :root { --bg: #0a0a0a; --cream: #e8e0d0; --cream-dim: rgba(232,224,208,0.5); --cream-faint: rgba(232,224,208,0.08); --cream-subtle: rgba(232,224,208,0.15); }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--cream); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.7; }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 3rem;
-      background: rgba(10, 10, 10, 0.92); backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--cream-subtle);
-    }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 3rem; background: rgba(10,10,10,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--cream-subtle); }
     .nav-logo { font-family: 'Courier Prime', monospace; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; color: var(--cream); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
     .nav-logo .epsilon-glyph { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 400; line-height: 1; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a { font-family: 'Courier Prime', monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; color: var(--cream-dim); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--cream); }
-
     .page-header { padding: 10rem 3rem 3rem; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--cream-subtle); }
     .page-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em; color: var(--cream-dim); margin-bottom: 1.5rem; }
     .page-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; line-height: 1.05; max-width: 700px; }
     .page-title em { font-style: italic; color: var(--cream-dim); }
-
-    /* FILTER BAR */
-    .filter-bar {
-      max-width: 1100px; margin: 0 auto; padding: 2rem 3rem;
-      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
-      border-bottom: 1px solid var(--cream-subtle);
-    }
+    .filter-bar { max-width: 1100px; margin: 0 auto; padding: 2rem 3rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; border-bottom: 1px solid var(--cream-subtle); }
     .filter-label { font-family: 'Courier Prime', monospace; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; color: var(--cream-dim); margin-right: 0.5rem; }
-    .filter-btn {
-      font-family: 'Courier Prime', monospace; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
-      padding: 0.4rem 1rem; border: 1px solid var(--cream-subtle); background: transparent; color: var(--cream-dim);
-      cursor: pointer; border-radius: 2px; transition: all 0.2s;
-    }
+    .filter-btn { font-family: 'Courier Prime', monospace; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; padding: 0.4rem 1rem; border: 1px solid var(--cream-subtle); background: transparent; color: var(--cream-dim); cursor: pointer; border-radius: 2px; transition: all 0.2s; }
     .filter-btn:hover, .filter-btn.active { border-color: var(--cream); color: var(--cream); }
-
-    /* PROBLEMS LIST */
     .problems-list { max-width: 1100px; margin: 0 auto; padding: 0 3rem 6rem; }
-
-    .problem-row {
-      display: grid;
-      grid-template-columns: 60px 1fr auto;
-      gap: 2rem;
-      align-items: start;
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--cream-subtle);
-      transition: background 0.15s;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-    }
+    .problem-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 2rem; align-items: start; padding: 2rem 0; border-bottom: 1px solid var(--cream-subtle); text-decoration: none; color: inherit; transition: background 0.15s; }
     .problem-row:hover { background: var(--cream-faint); margin: 0 -3rem; padding: 2rem 3rem; }
-
-    .prob-num {
-      font-family: 'Courier Prime', monospace; font-size: 0.65rem; font-weight: 700;
-      letter-spacing: 0.15em; color: var(--cream-dim); padding-top: 0.35rem;
-    }
-    .prob-main { }
-    .prob-cat {
-      font-family: 'Courier Prime', monospace; font-size: 0.6rem; font-weight: 700;
-      letter-spacing: 0.15em; color: var(--cream-dim); margin-bottom: 0.3rem;
-    }
+    .prob-num { font-family: 'Courier Prime', monospace; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; color: var(--cream-dim); padding-top: 0.35rem; }
+    .prob-cat { font-family: 'Courier Prime', monospace; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; color: var(--cream-dim); margin-bottom: 0.3rem; }
     .prob-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 400; margin-bottom: 0.4rem; }
     .prob-desc { font-size: 0.875rem; color: var(--cream-dim); line-height: 1.6; max-width: 560px; }
-
-    .prob-difficulty {
-      font-family: 'Courier Prime', monospace; font-size: 0.6rem; font-weight: 700;
-      letter-spacing: 0.12em; padding: 0.3rem 0.7rem; border-radius: 2px;
-      white-space: nowrap; margin-top: 0.35rem;
-    }
-    .diff-1 { border: 1px solid rgba(232,224,208,0.2); color: rgba(232,224,208,0.4); }
-    .diff-2 { border: 1px solid rgba(232,224,208,0.4); color: rgba(232,224,208,0.6); }
-    .diff-3 { border: 1px solid rgba(232,224,208,0.7); color: rgba(232,224,208,0.9); }
-
+    .prob-difficulty { font-family: 'Courier Prime', monospace; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; padding: 0.3rem 0.7rem; border-radius: 2px; white-space: nowrap; margin-top: 0.35rem; }
+    .diff-p1 { border: 1px solid rgba(232,224,208,0.2); color: rgba(232,224,208,0.4); }
+    .diff-p2 { border: 1px solid rgba(232,224,208,0.5); color: rgba(232,224,208,0.7); }
+    .diff-p3 { border: 1px solid rgba(232,224,208,0.8); color: rgba(232,224,208,1); }
+    .loading-state { padding: 4rem 3rem; font-family: 'Courier Prime', monospace; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--cream-dim); }
+    .empty-state { padding: 4rem 3rem; font-family: 'Courier Prime', monospace; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--cream-dim); }
     footer { border-top: 1px solid var(--cream-subtle); padding: 2.5rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .footer-left { font-family: 'Courier Prime', monospace; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; color: var(--cream-dim); }
     .footer-links { display: flex; gap: 2rem; list-style: none; }
     .footer-links a { font-family: 'Courier Prime', monospace; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; color: var(--cream-dim); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--cream); }
-
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; } .nav-links { gap: 1.5rem; }
-      .page-header { padding: 8rem 1.5rem 3rem; }
-      .filter-bar { padding: 1.5rem; }
-      .problems-list { padding: 0 1.5rem 4rem; }
-      .problem-row { grid-template-columns: 40px 1fr; }
-      .prob-difficulty { display: none; }
-    }
+    @media (max-width: 768px) { nav { padding: 1rem 1.5rem; } .nav-links { gap: 1.5rem; } .page-header { padding: 8rem 1.5rem 3rem; } .filter-bar { padding: 1.5rem; } .problems-list { padding: 0 1.5rem 4rem; } .problem-row { grid-template-columns: 40px 1fr; } .prob-difficulty { display: none; } }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
   </style>
 </head>
 <body>
-
   <nav>
-    <a href="index.html" class="nav-logo">
-      <span class="epsilon-glyph">ε</span>
-      <span>EPSILON ARCHIVE</span>
-    </a>
+    <a href="index.html" class="nav-logo"><span class="epsilon-glyph">ε</span><span>EPSILON ARCHIVE</span></a>
     <ul class="nav-links">
       <li><a href="about.html">ABOUT</a></li>
       <li><a href="problems.html" class="active">PROBLEMS</a></li>
@@ -123,153 +61,17 @@
 
   <div class="page-header">
     <p class="page-eyebrow">PROBLEM ARCHIVE</p>
-    <h1 class="page-title">13 problems.<br><em>Four lenses each.</em></h1>
+    <h1 class="page-title"><span id="problem-count-header">—</span> problems.<br><em>Four lenses each.</em></h1>
   </div>
 
-  <div class="filter-bar">
+  <div class="filter-bar" id="filterBar">
     <span class="filter-label">FILTER:</span>
-    <button class="filter-btn active" onclick="filterProblems('all', this)">ALL</button>
-    <button class="filter-btn" onclick="filterProblems('probability', this)">PROBABILITY</button>
-    <button class="filter-btn" onclick="filterProblems('combinatorics', this)">COMBINATORICS</button>
-    <button class="filter-btn" onclick="filterProblems('linear-algebra', this)">LINEAR ALGEBRA</button>
-    <button class="filter-btn" onclick="filterProblems('real-analysis', this)">REAL ANALYSIS</button>
-    <button class="filter-btn" onclick="filterProblems('number-theory', this)">NUMBER THEORY</button>
-    <button class="filter-btn" onclick="filterProblems('game-theory', this)">GAME THEORY</button>
-    <button class="filter-btn" onclick="filterProblems('estimation', this)">ESTIMATION</button>
+    <button class="filter-btn active" data-cat="all">ALL</button>
+    <!-- category buttons injected dynamically -->
   </div>
 
   <div class="problems-list" id="problemsList">
-
-    <a class="problem-row" href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank" data-cat="probability">
-      <div class="prob-num">001</div>
-      <div class="prob-main">
-        <p class="prob-cat">PROBABILITY &amp; EXPECTATION</p>
-        <p class="prob-title">The Unfair Coin and the Gambler's Ruin</p>
-        <p class="prob-desc">A classic framing with a non-obvious insight about the relationship between expected value and stopping time.</p>
-      </div>
-      <div class="prob-difficulty diff-2">MEDIUM</div>
-    </a>
-
-    <a class="problem-row" href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank" data-cat="combinatorics">
-      <div class="prob-num">002</div>
-      <div class="prob-main">
-        <p class="prob-cat">COMBINATORICS</p>
-        <p class="prob-title">Counting Monotone Paths</p>
-        <p class="prob-desc">Lattice paths that disguise themselves as a straightforward counting problem until the constraint appears.</p>
-      </div>
-      <div class="prob-difficulty diff-1">INTRO</div>
-    </a>
-
-    <a class="problem-row" href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank" data-cat="linear-algebra">
-      <div class="prob-num">003</div>
-      <div class="prob-main">
-        <p class="prob-cat">LINEAR ALGEBRA</p>
-        <p class="prob-title">Rank-One Perturbations and Eigenvalue Shifts</p>
-        <p class="prob-desc">What happens to a matrix's eigenvalues when you add a rank-one matrix? The answer is cleaner than it looks.</p>
-      </div>
-      <div class="prob-difficulty diff-3">HARD</div>
-    </a>
-
-    <a class="problem-row" href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank" data-cat="probability">
-      <div class="prob-num">004</div>
-      <div class="prob-main">
-        <p class="prob-cat">PROBABILITY &amp; EXPECTATION</p>
-        <p class="prob-title">Expected Collisions in a Hash Table</p>
-        <p class="prob-desc">Linearity of expectation applied to a problem that feels like it requires heavy combinatorics.</p>
-      </div>
-      <div class="prob-difficulty diff-2">MEDIUM</div>
-    </a>
-
-    <a class="problem-row" href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank" data-cat="real-analysis">
-      <div class="prob-num">005</div>
-      <div class="prob-main">
-        <p class="prob-cat">REAL ANALYSIS</p>
-        <p class="prob-title">A Sequence That Converges to Its Own Limit</p>
-        <p class="prob-desc">Fixed-point arguments and the trap of trying to compute the limit before proving it exists.</p>
-      </div>
-      <div class="prob-difficulty diff-2">MEDIUM</div>
-    </a>
-
-    <a class="problem-row" href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank" data-cat="game-theory">
-      <div class="prob-num">006</div>
-      <div class="prob-main">
-        <p class="prob-cat">GAME THEORY &amp; STRATEGY</p>
-        <p class="prob-title">The Optimal Bidder in a Second-Price Auction</p>
-        <p class="prob-desc">Why truthful bidding is dominant — and what the proof reveals about incentive design.</p>
-      </div>
-      <div class="prob-difficulty diff-1">INTRO</div>
-    </a>
-
-    <a class="problem-row" href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank" data-cat="number-theory">
-      <div class="prob-num">007</div>
-      <div class="prob-main">
-        <p class="prob-cat">NUMBER THEORY</p>
-        <p class="prob-title">Divisibility by 7, Structurally</p>
-        <p class="prob-desc">A divisibility problem that rewards the student who looks for invariant structure instead of brute force.</p>
-      </div>
-      <div class="prob-difficulty diff-2">MEDIUM</div>
-    </a>
-
-    <a class="problem-row" href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank" data-cat="estimation">
-      <div class="prob-num">008</div>
-      <div class="prob-main">
-        <p class="prob-cat">ESTIMATION &amp; FERMI</p>
-        <p class="prob-title">How Many Piano Tuners in Chicago?</p>
-        <p class="prob-desc">The canonical Fermi problem, treated as a lesson in decomposing uncertainty rather than guessing.</p>
-      </div>
-      <div class="prob-difficulty diff-1">INTRO</div>
-    </a>
-
-    <a class="problem-row" href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank" data-cat="combinatorics">
-      <div class="prob-num">009</div>
-      <div class="prob-main">
-        <p class="prob-cat">COMBINATORICS</p>
-        <p class="prob-title">Derangements and the Inclusion-Exclusion Trap</p>
-        <p class="prob-desc">The formula is well-known. The insight — and why most students use it without understanding it — is not.</p>
-      </div>
-      <div class="prob-difficulty diff-2">MEDIUM</div>
-    </a>
-
-    <a class="problem-row" href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank" data-cat="probability">
-      <div class="prob-num">010</div>
-      <div class="prob-main">
-        <p class="prob-cat">PROBABILITY &amp; EXPECTATION</p>
-        <p class="prob-title">The Secretary Problem and Optimal Stopping</p>
-        <p class="prob-desc">When should you stop looking? A problem that connects probability, optimization, and real-world decision-making.</p>
-      </div>
-      <div class="prob-difficulty diff-3">HARD</div>
-    </a>
-
-    <a class="problem-row" href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank" data-cat="linear-algebra">
-      <div class="prob-num">011</div>
-      <div class="prob-main">
-        <p class="prob-cat">LINEAR ALGEBRA</p>
-        <p class="prob-title">When Does Ax = b Have No Solution?</p>
-        <p class="prob-desc">Geometric and algebraic perspectives on inconsistency — and what the four fundamental subspaces reveal.</p>
-      </div>
-      <div class="prob-difficulty diff-1">INTRO</div>
-    </a>
-
-    <a class="problem-row" href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank" data-cat="game-theory">
-      <div class="prob-num">012</div>
-      <div class="prob-main">
-        <p class="prob-cat">GAME THEORY &amp; STRATEGY</p>
-        <p class="prob-title">Nim and the XOR Invariant</p>
-        <p class="prob-desc">A combinatorial game where the winning strategy is hidden inside a bitwise operation most students never consider.</p>
-      </div>
-      <div class="prob-difficulty diff-3">HARD</div>
-    </a>
-
-    <a class="problem-row" href="https://github.com/AIyer1155/Epsilon-Archive" target="_blank" data-cat="real-analysis">
-      <div class="prob-num">013</div>
-      <div class="prob-main">
-        <p class="prob-cat">REAL ANALYSIS</p>
-        <p class="prob-title">The Cantor Set Has Measure Zero</p>
-        <p class="prob-desc">Constructing intuition for measure theory through one of the most elegant pathological objects in mathematics.</p>
-      </div>
-      <div class="prob-difficulty diff-2">MEDIUM</div>
-    </a>
-
+    <div class="loading-state">LOADING PROBLEMS FROM GITHUB...</div>
   </div>
 
   <footer>
@@ -282,18 +84,155 @@
   </footer>
 
   <script>
-    function filterProblems(cat, btn) {
+    const REPO = 'AIyer1155/Epsilon-Archive';
+    const PREFIXES = ['CP','EV','GP','IV','RD','SY','CM','GT','FE','LA','NT','RA'];
+
+    // Maps category prefix -> display label and filter slug
+    const CATEGORY_META = {
+      CP: { label: 'Conditional Probability', slug: 'conditional-probability' },
+      EV: { label: 'Expected Value',          slug: 'expected-value' },
+      GP: { label: 'Geometric Probability',   slug: 'geometric-probability' },
+      IV: { label: 'Invariants',              slug: 'invariants' },
+      RD: { label: 'Recursive Decomposition', slug: 'recursive-decomposition' },
+      SY: { label: 'Symmetry',               slug: 'symmetry' },
+      CM: { label: 'Combinatorics',           slug: 'combinatorics' },
+      GT: { label: 'Game Theory',             slug: 'game-theory' },
+      FE: { label: 'Fermi Estimation',        slug: 'fermi-estimation' },
+      LA: { label: 'Linear Algebra',          slug: 'linear-algebra' },
+      NT: { label: 'Number Theory',           slug: 'number-theory' },
+      RA: { label: 'Real Analysis',           slug: 'real-analysis' },
+    };
+
+    let allProblems = [];
+    let activeFilter = 'all';
+
+    // Parse key metadata from raw markdown text
+    function parseMarkdown(filename, raw) {
+      const prefix = filename.slice(0, 2);
+      const id     = filename.replace('.md', '').toUpperCase();
+
+      // Title: first # heading
+      const titleMatch = raw.match(/^#\s+(.+)$/m);
+      const title = titleMatch ? titleMatch[1].trim() : id;
+
+      // Category from frontmatter line or filename prefix
+      const catMatch = raw.match(/\*\*Category:\*\*\s*(.+)/);
+      const category = catMatch ? catMatch[1].trim() : (CATEGORY_META[prefix]?.label || prefix);
+
+      // Difficulty
+      const diffMatch = raw.match(/\*\*Difficulty:\*\*\s*(P\d)/i);
+      const difficulty = diffMatch ? diffMatch[1].toUpperCase() : 'P1';
+
+      // Description: first paragraph after ## Problem heading
+      const problemMatch = raw.match(/##\s+Problem\s*\n+([\s\S]+?)(?:\n##|\n---)/);
+      let desc = '';
+      if (problemMatch) {
+        desc = problemMatch[1]
+          .replace(/\n+/g, ' ')
+          .replace(/\*\*/g, '')
+          .replace(/\$/g, '')
+          .trim()
+          .slice(0, 180);
+        if (desc.length === 180) desc += '…';
+      }
+
+      const slug = CATEGORY_META[prefix]?.slug || prefix.toLowerCase();
+
+      return { id, prefix, title, category, difficulty, desc, slug, filename };
+    }
+
+    async function fetchAndRender() {
+      try {
+        const res = await fetch(`https://api.github.com/repos/${REPO}/contents/`);
+        const files = await res.json();
+
+        const problemFiles = files.filter(f =>
+          f.type === 'file' &&
+          f.name.endsWith('.md') &&
+          PREFIXES.some(p => f.name.startsWith(p))
+        );
+
+        // Fetch all raw files in parallel
+        const raws = await Promise.all(
+          problemFiles.map(f =>
+            fetch(f.download_url).then(r => r.text())
+          )
+        );
+
+        allProblems = problemFiles.map((f, i) => parseMarkdown(f.name, raws[i]));
+        allProblems.sort((a, b) => a.id.localeCompare(b.id));
+
+        // Update count
+        document.getElementById('problem-count-header').textContent = allProblems.length;
+
+        // Build category filter buttons from actual problems present
+        const seenSlugs = new Set();
+        const filterBar = document.getElementById('filterBar');
+        allProblems.forEach(p => {
+          if (!seenSlugs.has(p.slug)) {
+            seenSlugs.add(p.slug);
+            const btn = document.createElement('button');
+            btn.className = 'filter-btn';
+            btn.dataset.cat = p.slug;
+            btn.textContent = p.category.toUpperCase();
+            btn.addEventListener('click', () => setFilter(p.slug, btn));
+            filterBar.appendChild(btn);
+          }
+        });
+
+        // Wire ALL button
+        document.querySelector('[data-cat="all"]').addEventListener('click', function() {
+          setFilter('all', this);
+        });
+
+        renderList('all');
+
+      } catch (err) {
+        document.getElementById('problemsList').innerHTML =
+          '<div class="empty-state">COULD NOT LOAD PROBLEMS — VIEW ON <a href="https://github.com/' + REPO + '" style="color:var(--cream)">GITHUB ↗</a></div>';
+        document.getElementById('problem-count-header').textContent = '?';
+      }
+    }
+
+    function setFilter(cat, btn) {
+      activeFilter = cat;
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      document.querySelectorAll('.problem-row').forEach(row => {
-        if (cat === 'all' || row.dataset.cat === cat) {
-          row.style.display = 'grid';
-        } else {
-          row.style.display = 'none';
-        }
-      });
+      renderList(cat);
     }
-  </script>
 
+    function diffClass(d) {
+      if (d === 'P3') return 'diff-p3';
+      if (d === 'P2') return 'diff-p2';
+      return 'diff-p1';
+    }
+
+    function renderList(cat) {
+      const filtered = cat === 'all' ? allProblems : allProblems.filter(p => p.slug === cat);
+      const list = document.getElementById('problemsList');
+
+      if (filtered.length === 0) {
+        list.innerHTML = '<div class="empty-state">NO PROBLEMS IN THIS CATEGORY YET.</div>';
+        return;
+      }
+
+      list.innerHTML = filtered.map(p => `
+        <a class="problem-row"
+           href="https://github.com/${REPO}/blob/main/${p.filename}"
+           target="_blank"
+           data-cat="${p.slug}">
+          <div class="prob-num">${p.id}</div>
+          <div class="prob-main">
+            <p class="prob-cat">${p.category.toUpperCase()}</p>
+            <p class="prob-title">${p.title}</p>
+            <p class="prob-desc">${p.desc}</p>
+          </div>
+          <div class="prob-difficulty ${diffClass(p.difficulty)}">${p.difficulty}</div>
+        </a>
+      `).join('');
+    }
+
+    fetchAndRender();
+  </script>
 </body>
 </html>
