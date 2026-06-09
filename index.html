@@ -418,6 +418,22 @@
     }
   </style>
 </head>
+  <script>
+    fetch('https://api.github.com/repos/AIyer1155/Epsilon-Archive/contents/')
+      .then(r => r.json())
+      .then(files => {
+        const problemPrefixes = ['CP','EV','GP','IV','RD','SY','CM','GT','FE','LA','NT','RA'];
+        const count = files.filter(f =>
+          f.type === 'file' &&
+          f.name.endsWith('.md') &&
+          problemPrefixes.some(p => f.name.startsWith(p))
+        ).length;
+        document.getElementById('problem-count').textContent = count || '—';
+      })
+      .catch(() => {
+        document.getElementById('problem-count').textContent = '12';
+      });
+  </script>
 <body>
 
   <!-- NAV -->
@@ -458,7 +474,7 @@
     <p class="section-eyebrow">BY THE NUMBERS</p>
     <div class="stats">
       <div class="stat-item">
-        <div class="stat-num">13</div>
+        <div class="stat-num" id="problem-count">—</div>
         <div class="stat-label">PROBLEMS</div>
       </div>
       <div class="stat-item">
