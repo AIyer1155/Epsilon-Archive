@@ -17,7 +17,7 @@ Harder version: at least one is a boy born on a Tuesday. Now what?
 
 ## The Trap
 
-> For part one: most people say $\frac{1}{2}$ because "the other child is independently a boy or girl." But conditioning shrinks the sample space — GG is gone.
+> For part one: most people say $\frac{1}{2}$ because "the other child is independently a boy or girl." But conditioning shrinks the sample space, GG is gone.
 
 > For part two: the Tuesday detail feels like it shouldn't matter. It does, and the answer is weird.
 

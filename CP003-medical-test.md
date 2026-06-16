@@ -46,7 +46,7 @@ $$P(\text{sick} \mid +) = \frac{P(+ \mid \text{sick}) \cdot P(\text{sick})}{P(+)
 
 ## What This Trains
 
-Base rate neglect is one of the most common probabilistic errors in medicine, in finance, and in interviews. Whenever someone gives you a conditional probability, ask: what's the prior? A signal that's 99% accurate on a rare event is mostly noise in practice.
+Base rate neglect is one of the most common probabilistic errors in medicine and in finance. Whenever someone gives you a conditional probability, ask: what's the prior? A signal that's 99% accurate on a rare event is mostly noise in practice.
 
 ---
 

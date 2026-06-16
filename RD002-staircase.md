@@ -15,7 +15,7 @@ You're climbing a staircase with $n$ steps. Each move you can climb 1 or 2 steps
 
 ## The Trap
 
-> Trying to enumerate paths directly for large $n$. The structure is recursive the last step determines everything.
+> Trying to enumerate paths directly for large $n$. The structure is recursive, since the last step determines everything.
 
 ---
 
@@ -44,7 +44,7 @@ This is the Fibonacci sequence (shifted by one):
 | 5 | 8 |
 | 10 | 89 |
 
-**Answer:** $f(n) = F_{n+1}$ where $F_k$ is the $k$-th Fibonacci number.
+So $f(n) = F_{n+1}$ where $F_k$ is the $k$-th Fibonacci number.
 
 ---
 

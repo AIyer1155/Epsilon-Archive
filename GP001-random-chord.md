@@ -29,15 +29,15 @@ A chord is drawn at random in a unit circle. What is the probability its length 
 
 Note: a chord has length $> \sqrt{3}$ iff it's longer than the side of an inscribed equilateral triangle.
 
-**Method 1 — Random endpoints:** Pick two points uniformly on the circle. Fix one at the top. The chord exceeds $\sqrt{3}$ when the second point falls in the arc subtended by the opposite third of the circle.
+**Method 1, random endpoints:** Pick two points uniformly on the circle. Fix one at the top. The chord exceeds $\sqrt{3}$ when the second point falls in the arc subtended by the opposite third of the circle.
 
 $$P = \frac{1}{3}$$
 
-**Method 2 — Random midpoint:** A chord is determined by its midpoint. Pick the midpoint uniformly over the disk. The chord exceeds $\sqrt{3}$ iff the midpoint lies within a circle of radius $\frac{1}{2}$ centered at the origin (this comes from the geometry of the inscribed triangle).
+**Method 2, random midpoint:** A chord is determined by its midpoint. Pick the midpoint uniformly over the disk. The chord exceeds $\sqrt{3}$ iff the midpoint lies within a circle of radius $\frac{1}{2}$ centered at the origin (this comes from the geometry of the inscribed triangle).
 
 $$P = \frac{\pi (1/2)^2}{\pi (1)^2} = \frac{1}{4}$$
 
-**Method 3 — Random radius:** Pick a radius at random, then pick a point uniformly on that radius as the midpoint of a perpendicular chord. The chord exceeds $\sqrt{3}$ iff the midpoint is within the inner half of the radius.
+**Method 3, random radius:** Pick a radius at random, then pick a point uniformly on that radius as the midpoint of a perpendicular chord. The chord exceeds $\sqrt{3}$ iff the midpoint is within the inner half of the radius.
 
 $$P = \frac{1}{2}$$
 

@@ -35,13 +35,13 @@ Three doors. One hides a car, two hide goats. You pick door 1. The host who know
 
 $$P(\text{win by switching}) = \frac{2}{3}, \quad P(\text{win by staying}) = \frac{1}{3}$$
 
-**Always switch.**
+So you always switch.
 
 ---
 
 ## What This Trains
 
-The host's constraint is the whole problem. When an agent with information takes an action, that action updates your probabilities, even if the action looks neutral. This reasoning pattern appears constantly in market microstructure: what does the fact that someone is willing to trade with you* tell you?
+The host's constraint is the whole problem. When an agent with information takes an action, that action updates your probabilities, even if the action looks neutral. This reasoning pattern appears constantly in market microstructure: what does the fact that someone is willing to trade with you tell you?
 
 ---
 

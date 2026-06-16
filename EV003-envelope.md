@@ -9,7 +9,7 @@
 
 ## Problem
 
-Two envelopes each contain money. One has twice as much as the other. You pick one, open it, see \$100. Should you switch? The other envelope contains either \$50 or \$200$ with equal probability, so the expected value of switching is $\frac{1}{2}(50) + \frac{1}{2}(200) = \$125 > \$100$. But by symmetry, the same argument applies before you open the envelope. So should you always switch, even without looking?
+Two envelopes each contain money. One has twice as much as the other. You pick one, open it, see \$100. Should you switch? The other envelope contains either \$50 or \$200 with equal probability, so the expected value of switching is $\frac{1}{2}(50) + \frac{1}{2}(200) = \$125 > \$100$. But by symmetry, the same argument applies before you open the envelope. So should you always switch, even without looking?
 
 ---
 
@@ -41,7 +41,7 @@ This equals \$100 (indifferent to switching) when $p = \frac{1}{3}$, favors swit
 
 The value of $p$ depends entirely on the prior distribution over $m$. Without it, the problem is ill-posed. The naive $p = \frac{1}{2}$ assumption smuggles in a specific (improper) prior.
 
-**So should you switch?** If you have no information about how the envelopes were filled: it doesn't matter. The symmetry argument is correct — the same logic applies to whichever envelope you hold, so there's no edge in switching.
+**So should you switch?** If you have no information about how the envelopes were filled: it doesn't matter. The symmetry argument is correct. The same logic applies to whichever envelope you hold, so there's no edge in switching.
 
 ---
 

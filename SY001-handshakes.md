@@ -31,9 +31,7 @@ Each handshake is a unique pair of people. The number of ways to choose 2 from 1
 
 $$\binom{10}{2} = \frac{10 \times 9}{2} = 45$$
 
-Or: $10 \times 9 = 90$ ordered pairs, divide by 2 since each handshake is counted twice. Same answer.
-
-$$\boxed{45}$$
+Or: $10 \times 9 = 90$ ordered pairs, divide by 2 since each handshake is counted twice. Same count.
 
 ---
 

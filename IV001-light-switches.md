@@ -37,7 +37,7 @@ So $\tau(n)$ is odd $\iff$ $n$ is a perfect square.
 
 The perfect squares from 1 to 100: $1, 4, 9, 16, 25, 36, 49, 64, 81, 100$.
 
-**10 switches are on.**
+So 10 switches are on.
 
 ---
 

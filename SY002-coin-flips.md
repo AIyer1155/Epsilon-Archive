@@ -21,7 +21,7 @@ You flip a fair coin 10 times. What is the probability of getting exactly 5 head
 
 ## Key Insight
 
-> Count the favorable sequences over total sequences. Total is $2^{10}$, favorable is $\binom{10}{5}$ — the number of ways to place 5 heads in 10 flips.
+> Count the favorable sequences over total sequences. Total is $2^{10}$, favorable is $\binom{10}{5}$, the number of ways to place 5 heads in 10 flips.
 
 ---
 

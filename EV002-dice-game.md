@@ -39,13 +39,11 @@ $$E = \frac{1}{6}(1) + \frac{5}{6}(1 + E)$$
 
 $$E = 1 + \frac{5}{6}E \implies \frac{1}{6}E = 1 \implies E = 6$$
 
-**Sanity check:** Feels right — one in six chance each roll, so six rolls on average. ✓
-
 ---
 
 ## What This Trains
 
-Recognizing geometric distributions on sight and knowing $E[X] = \frac{1}{p}$ cold. Also the first-step derivation, which is the move when the distribution isn't obvious.
+Recognizing geometric distributions on sight and knowing $E[X] = \frac{1}{p}$. Also the first-step derivation, which is the move when the distribution isn't obvious.
 
 ---
 

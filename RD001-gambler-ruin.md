@@ -15,7 +15,7 @@ You start with \$k. Each step: win \$1 with probability $p$, lose \$1 with proba
 
 ## The Trap
 
-> Counting paths directly. The game can last arbitrarily long, so you're summing an infinite series that gets unweildy fast. First-step analysis is the move
+> Counting paths directly. The game can last arbitrarily long, so you're summing an infinite series that gets unwieldy fast. First-step analysis is the move.
 
 ---
 
@@ -49,7 +49,7 @@ Fair game, start at \$50, target \$100 → you win exactly half the time. Makes 
 
 ## What This Trains
 
-First-step analysis: condition on the first event, write a recurrence, solve it. This is the core move for random walks and Markov chains, and it shows up in a lot of interview problems that look nothing like this one on the surface.
+First-step analysis: condition on the first event, write a recurrence, solve it. This is the core move for random walks and Markov chains, and it shows up in a lot of problems that look nothing like this one on the surface.
 
 ---
 

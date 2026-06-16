@@ -31,13 +31,13 @@ Let $X \sim \text{Uniform}(0,1)$ be the break point. The shorter piece has lengt
 
 $$E[\min(X, 1-X)] = \int_0^{1/2} x\, dx + \int_{1/2}^1 (1-x)\, dx = 2\int_0^{1/2} x\, dx = 2 \cdot \frac{1}{8} = \frac{1}{4}$$
 
-**Check:** shorter + longer = $\frac{1}{4} + \frac{3}{4} = 1$. ✓
+The shorter and longer pieces add to $\frac{1}{4} + \frac{3}{4} = 1$, which is what you'd expect.
 
 ---
 
 ## What This Trains
 
-Checking your answer against a complementary quantity before you say it out loud. In an interview, that pause is worth more than the integral.
+Checking your answer against a complementary quantity before you commit to it. The two pieces have to sum to 1, so the longer piece falling out as $\frac{3}{4}$ confirms the shorter one.
 
 ---
 
